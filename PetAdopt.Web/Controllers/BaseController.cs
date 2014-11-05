@@ -17,7 +17,6 @@ namespace PetAdopt.Web.Controllers
         public BaseController(IPetAdoptData data)
         {
             this.Data = data;
-            this.LoggedUser = data.Users.Find(HttpContext.User.Identity.GetUserId());
         }
     }
 }

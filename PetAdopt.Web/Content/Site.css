@@ -16,6 +16,43 @@
     white-space: normal;
 }
 
+.navbar-nav>li>a{
+    color: #FFC563;
+}
+
+.site-jumbotron{
+    background-color: #FFD593;
+}
+.bright{
+    background-color:#FFDFAD;
+}
+
+.nav-text{
+    color: #FFC563;
+    font-weight:bold;
+}
+
+.padded{
+    padding:10px;
+}
+
+a{
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #000000;
+    text-decoration: none;
+}
+
+.brown{
+    background-color:#491B00;
+}
+
+body{
+    background-color: #FFC563;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,

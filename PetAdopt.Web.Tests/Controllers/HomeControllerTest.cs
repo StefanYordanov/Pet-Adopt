@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,4 +52,4 @@ namespace PetAdopt.Web.Tests.Controllers
             Assert.IsNotNull(result);
         }
     }
-}
+}*/

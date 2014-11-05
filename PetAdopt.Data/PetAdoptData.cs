@@ -44,27 +44,27 @@ namespace PetAdopt.Data
 
         public IRepository<User> Users
         {
-            get { throw new NotImplementedException(); }
+            get { return this.GetRepository<User>(); }
         }
 
         public IRepository<Pet> Pets
         {
-            get { throw new NotImplementedException(); }
+            get { return this.GetRepository<Pet>(); }
         }
 
         public IRepository<PetAdvertisement> Advertisements
         {
-            get { throw new NotImplementedException(); }
+            get { return this.GetRepository<PetAdvertisement>(); }
         }
 
         public IRepository<PetCandidature> Candidatures
         {
-            get { throw new NotImplementedException(); }
+            get { return this.GetRepository<PetCandidature>(); }
         }
 
         public IRepository<PetType> PetTypes
         {
-            get { throw new NotImplementedException(); }
+            get { return this.GetRepository<PetType>(); }
         }
     }
 }

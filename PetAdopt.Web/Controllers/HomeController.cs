@@ -1,13 +1,20 @@
-﻿using System;
+﻿using PetAdopt.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using Microsoft.AspNet.Identity;
 namespace PetAdopt.Web.Controllers
 {
     public class HomeController : BaseController
     {
+        public HomeController(IPetAdoptData data)
+            : base(data)
+        {   
+        }
+        
         public ActionResult Index()
         {
             return View();
