@@ -1,0 +1,16 @@
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\PetAdopt.Data.dll.config
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\PetAdopt.Data.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\PetAdopt.Data.pdb
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\EntityFramework.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\PetAdopt.Models.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\PetAdopt.Models.pdb
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\EntityFramework.xml
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\obj\Debug\PetAdopt.Data.csprojResolveAssemblyReference.cache
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\obj\Debug\PetAdopt.Data.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Data\obj\Debug\PetAdopt.Data.pdb
