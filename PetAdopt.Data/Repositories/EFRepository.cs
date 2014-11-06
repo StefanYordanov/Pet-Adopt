@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 namespace PetAdopt.Data.Repositories
 {
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.Linq;
 
     public class EFRepository<T> : IRepository<T> where T: class
     {
-        private DbContext context;
+        protected DbContext context;
         private IDbSet<T> set;
 
         public EFRepository(DbContext context)
@@ -20,7 +21,7 @@ namespace PetAdopt.Data.Repositories
             this.set = context.Set<T>();
         }
 
-        public IQueryable<T> All()
+        public virtual IQueryable<T> All()
         {
             return this.set;
         }
@@ -40,7 +41,7 @@ namespace PetAdopt.Data.Repositories
             this.ChangeState(entity, EntityState.Modified);
         }
 
-        public T Delete(T entity)
+        public virtual T Delete(T entity)
         {
             this.ChangeState(entity, EntityState.Deleted);
             return entity;
@@ -67,6 +68,14 @@ namespace PetAdopt.Data.Repositories
             }
 
             entry.State = state;
+        }
+
+
+        public virtual void Detach(T entity)
+        {
+            DbEntityEntry entry = this.context.Entry(entity);
+
+            entry.State = EntityState.Detached;
         }
     }
 }

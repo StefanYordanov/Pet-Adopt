@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using PetAdopt.Models.Common;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -10,15 +12,17 @@ using System.Threading.Tasks;
 //using Microsoft
 namespace PetAdopt.Models
 {
-    public class User : IdentityUser
+    public partial class User : IdentityUser
     {
-        private ICollection<PetAdvertisement> petAdvertisements;
-        private ICollection<PetCandidature> petCandidatures;
-
         public User()
         {
+            CreatedOn = DateTime.Now;
             this.petAdvertisements = new HashSet<PetAdvertisement>();
             this.petCandidatures = new HashSet<PetCandidature>();
+
+            this.notifications = new HashSet<Notification>();
+            this.sentMessages = new HashSet<Message>();
+            this.recievedMessages = new HashSet<Message>();
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
@@ -29,32 +33,16 @@ namespace PetAdopt.Models
             return userIdentity;
         }
 
-        public string FirstName { get; set; }
+        [Index]
+        public bool IsDeleted { get; set; }
 
-        public string LastName { get; set; }
+        public DateTime? DeletedOn { get; set; }
 
-        public virtual ICollection<PetAdvertisement> PetAdvertisements
-        {
-            get
-            {
-                return this.petAdvertisements;
-            }
-            set
-            {
-                this.petAdvertisements = value;
-            }
-        }
+        public DateTime CreatedOn { get; set; }
 
-        public virtual ICollection<PetCandidature> PetCandidatures
-        {
-            get
-            {
-                return this.petCandidatures;
-            }
-            set
-            {
-                this.petCandidatures = value;
-            }
-        }
+        public DateTime? ModifiedOn{ get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
+        
     }
 }

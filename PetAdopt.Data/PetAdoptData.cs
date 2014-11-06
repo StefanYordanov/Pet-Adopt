@@ -11,7 +11,7 @@ namespace PetAdopt.Data
 {
     public class PetAdoptData : IPetAdoptData
     {
-        private DbContext context;
+        public IPetAdoptDbContext Context { get; set; }
         private IDictionary<Type, object> repositories;
 
         public PetAdoptData()
@@ -19,9 +19,9 @@ namespace PetAdopt.Data
         {
         }
 
-        public PetAdoptData(DbContext context)
+        public PetAdoptData(IPetAdoptDbContext context)
         {
-            this.context = context;
+            this.Context = context;
             this.repositories = new Dictionary<Type, object>();
         }
 
@@ -30,7 +30,7 @@ namespace PetAdopt.Data
             var typeOfRepository = typeof(T);
             if (!this.repositories.ContainsKey(typeOfRepository))
             {
-                var newRepository = Activator.CreateInstance(typeof(EFRepository<T>), context);
+                var newRepository = Activator.CreateInstance(typeof(EFRepository<T>), Context);
                 this.repositories.Add(typeOfRepository, newRepository);
             }
 
@@ -39,7 +39,7 @@ namespace PetAdopt.Data
 
         public int SaveChanges()
         {
-            return this.context.SaveChanges();
+            return this.Context.SaveChanges();
         }
 
         public IRepository<User> Users
@@ -65,6 +65,19 @@ namespace PetAdopt.Data
         public IRepository<PetType> PetTypes
         {
             get { return this.GetRepository<PetType>(); }
+        }
+
+
+        IPetAdoptDbContext IPetAdoptData.Context
+        {
+            get
+            {
+                return this.Context;
+            }
+            set
+            {
+                this.Context = value;
+            }
         }
     }
 }

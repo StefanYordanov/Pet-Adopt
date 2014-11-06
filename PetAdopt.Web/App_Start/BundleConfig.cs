@@ -8,8 +8,15 @@ namespace PetAdopt.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.IgnoreList.Clear();
+
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+                        "~/Scripts/KendoUI/kendo.all.min.js",
+                        "~/Scripts/KendoUI/kendo.aspnetmvc.min.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/KendoUI/jquery.min.js"));
+                        //"~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -25,6 +32,14 @@ namespace PetAdopt.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/Site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+                      "~/Content/KendoUI/kendo.common.min.css",
+                      "~/Content/KendoUI/kendo.common-bootstrap.min.css",
+                      "~/Content/KendoUI/kendo.moonlight.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/custom").Include(
                       "~/Content/Site.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,

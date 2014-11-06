@@ -64,3 +64,7 @@ C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\Ninject.xml
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\Ninject.Web.Common.xml
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\Ninject.Web.Mvc.xml
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\AutoMapper.Net4.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\AutoMapper.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\AutoMapper.xml
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\Kendo.Mvc.dll

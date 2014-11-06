@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetAdopt.Models.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PetAdopt.Models
 {
-    public class Pet
+    public class Pet : DeleteableEntity, IAuditInfo, IDeletableEntity
     {
         //public int Id { get; set; }
 
@@ -27,6 +28,7 @@ namespace PetAdopt.Models
 
         public string PictureUrl { get; set; }
 
+        [Index]
         public bool IsTaken { get; set; }
 
         public int TypeId { get; set; }
@@ -37,6 +39,19 @@ namespace PetAdopt.Models
         public int PetAdvertisementId { get; set; }
 
         public virtual PetAdvertisement PetAdvertisement { get; set; }
+
+        [Index]
+        public bool IsDeleted { get; set; }
+
+        public DateTime? DeletedOn { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
+        public bool PreserveCreatedOn { get; set; }
+
+
 
 
     }

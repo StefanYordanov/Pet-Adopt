@@ -6,6 +6,7 @@ namespace PetAdopt.Data.Repositories
     {
         void Add(T entity);
         IQueryable<T> All();
+        void Detach(T entity);
         T Delete(object id);
         T Delete(T entity);
         T Find(object id);

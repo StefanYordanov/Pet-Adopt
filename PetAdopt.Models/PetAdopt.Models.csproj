@@ -52,12 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\AuditInfo.cs" />
+    <Compile Include="Common\DeleteableEntity.cs" />
+    <Compile Include="Common\IAuditInfo.cs" />
+    <Compile Include="Common\IDeletableEntity.cs" />
+    <Compile Include="Common\IOrderable.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="Notification.cs" />
     <Compile Include="PetAdvertisement.cs" />
     <Compile Include="PetCandidature.cs" />
     <Compile Include="PetType.cs" />
     <Compile Include="Pet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserFields.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
