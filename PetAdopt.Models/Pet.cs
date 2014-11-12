@@ -28,9 +28,6 @@ namespace PetAdopt.Models
 
         public string PictureUrl { get; set; }
 
-        [Index]
-        public bool IsTaken { get; set; }
-
         public int TypeId { get; set; }
 
         public virtual PetType Type { get; set; }

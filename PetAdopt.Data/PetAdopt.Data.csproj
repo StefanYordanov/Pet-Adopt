@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeleteablePetAdoptData.cs" />
+    <Compile Include="IDeleteablePetAdoptData.cs" />
     <Compile Include="IPetAdoptData.cs" />
     <Compile Include="IPetAdoptDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -60,7 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DeleteableEntityRepository.cs" />
     <Compile Include="Repositories\EFRepository.cs" />
-    <Compile Include="Repositories\IDeleteableRepository.cs" />
+    <Compile Include="Repositories\IDeleteableEntityRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -22,7 +22,8 @@ namespace PetAdopt.Models
 
         public int PetId { get; set; }
 
-        public DateTime DatePosted { get; set; }
+        [Index]
+        public bool IsApproved { get; set; }
 
         [Required]
         public virtual Pet Pet { get; set; }

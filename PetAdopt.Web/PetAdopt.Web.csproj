@@ -185,14 +185,19 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\BaseAdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\PetsController.cs" />
     <Compile Include="Areas\Administration\Controllers\PetTypesController.cs" />
     <Compile Include="Areas\Administration\Controllers\KendoGridAdminController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Base\AdministrationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Pets\PetViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\PetTypes\PetTypeViewModel.cs" />
-    <Compile Include="Areas\User\Controllers\AdvertisementsController.cs" />
+    <Compile Include="Areas\Pets\Controllers\AdvertisementController.cs" />
+    <Compile Include="Areas\Pets\PetsAreaRegistration.cs" />
+    <Compile Include="Areas\Pets\ViewModels\AllAdvertisementsPetViewModel.cs" />
+    <Compile Include="Areas\Pets\ViewModels\AllAdvertisementsViewModel.cs" />
+    <Compile Include="Areas\Pets\ViewModels\CreatePetAdvertisementViewModel.cs" />
     <Compile Include="Areas\User\Controllers\MessagesController.cs" />
     <Compile Include="Areas\User\Controllers\NotificationsController.cs" />
-    <Compile Include="Areas\User\Controllers\PetsController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseDataController.cs" />
@@ -201,14 +206,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Attributes\PastDateAttribute.cs" />
+    <Compile Include="Infrastructure\Caching\ICacheService.cs" />
+    <Compile Include="Infrastructure\Caching\InMemoryCache.cs" />
     <Compile Include="Infrastructure\Mapping\AutoMapperConfig.cs" />
     <Compile Include="Infrastructure\Mapping\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\Mapping\IMapFrom.cs" />
+    <Compile Include="Infrastructure\Populators\DropDownListPopulator.cs" />
+    <Compile Include="Infrastructure\Populators\IDropDownListPopulator.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ViewModels\Home\PetAdvertisementHomeViewModel.cs" />
     <Compile Include="Models\ViewModels\Home\PetHomeViewModel.cs" />
+    <Compile Include="Models\ViewModels\NotificationsAndMessagesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -227,10 +238,41 @@
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\PetTypes\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\Administration\Views\Pets\Index.cshtml" />
+    <Content Include="Areas\Pets\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Pets\Views\Advertisement\All.cshtml" />
+    <Content Include="Areas\Pets\Views\Advertisement\Create.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Url.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -238,6 +280,9 @@
     <Content Include="Scripts\KendoUI\jquery.min.js" />
     <Content Include="Scripts\KendoUI\kendo.all.min.js" />
     <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\KendoUI\kendo.datepicker.min.js" />
+    <Content Include="Scripts\KendoUI\kendo.editable.min.js" />
+    <Content Include="Scripts\KendoUI\kendo.editor.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -249,14 +294,14 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
@@ -283,11 +328,25 @@
     <Content Include="Scripts\KendoUI\jquery.min.map" />
     <Content Include="Scripts\KendoUI\kendo.all.min.js.map" />
     <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Views\Home\_TopPetAdvertisements.cshtml" />
+    <Content Include="Views\Shared\_NotificationsAndMessages.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
-    <Folder Include="Areas\Administration\Views\KendoGridAdmin\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Areas\User\Views\Advertisements\" />
     <Folder Include="Areas\User\Views\Messages\" />
@@ -295,6 +354,7 @@
     <Folder Include="Areas\User\Views\Pets\" />
     <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Content\Images\Avatars\Pets\" />
+    <Folder Include="Content\Images\Pets\" />
     <Folder Include="Content\KendoUI\" />
     <Folder Include="Libraries\" />
   </ItemGroup>
@@ -306,6 +366,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PetAdopt.Common\PetAdopt.Common.csproj">
+      <Project>{41fb6a80-df69-4cb9-90ad-f04d996b6f8d}</Project>
+      <Name>PetAdopt.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PetAdopt.Data\PetAdopt.Data.csproj">
       <Project>{771a9fc1-eea1-47e0-9fe9-88559c87c7f7}</Project>
       <Name>PetAdopt.Data</Name>

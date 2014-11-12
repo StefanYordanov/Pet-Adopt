@@ -1,5 +1,6 @@
 ﻿using PetAdopt.Data.Repositories;
 using PetAdopt.Models;
+using PetAdopt.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,7 +13,7 @@ namespace PetAdopt.Data
     public class PetAdoptData : IPetAdoptData
     {
         public IPetAdoptDbContext Context { get; set; }
-        private IDictionary<Type, object> repositories;
+        protected IDictionary<Type, object> repositories;
 
         public PetAdoptData()
             : this(new PetAdoptDbContext())
@@ -37,34 +38,46 @@ namespace PetAdopt.Data
             return (IRepository<T>)this.repositories[typeOfRepository];
         }
 
+        private IRepository<T> GetDeleteableRepository<T>() where T : class, IDeletableEntity
+        {
+            var typeOfRepository = typeof(T);
+            if (!this.repositories.ContainsKey(typeOfRepository))
+            {
+                var newRepository = Activator.CreateInstance(typeof(DeletableEntityRepository<T>), Context);
+                this.repositories.Add(typeOfRepository, newRepository);
+            }
+
+            return (IRepository<T>)this.repositories[typeOfRepository];
+        }
+
         public int SaveChanges()
         {
             return this.Context.SaveChanges();
         }
 
-        public IRepository<User> Users
+        public virtual IRepository<User> Users
         {
             get { return this.GetRepository<User>(); }
         }
 
-        public IRepository<Pet> Pets
+        public virtual IRepository<Pet> Pets
         {
-            get { return this.GetRepository<Pet>(); }
+            get { return this.GetDeleteableRepository<Pet>(); }
         }
 
-        public IRepository<PetAdvertisement> Advertisements
+        public virtual IRepository<PetAdvertisement> Advertisements
         {
-            get { return this.GetRepository<PetAdvertisement>(); }
+            get { return this.GetDeleteableRepository<PetAdvertisement>(); }
         }
 
-        public IRepository<PetCandidature> Candidatures
+        public virtual IRepository<PetCandidature> Candidatures
         {
-            get { return this.GetRepository<PetCandidature>(); }
+            get { return this.GetDeleteableRepository<PetCandidature>(); }
         }
 
-        public IRepository<PetType> PetTypes
+        public virtual IRepository<PetType> PetTypes
         {
-            get { return this.GetRepository<PetType>(); }
+            get { return this.GetDeleteableRepository<PetType>(); }
         }
 
 

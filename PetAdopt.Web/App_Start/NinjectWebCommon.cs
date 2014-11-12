@@ -13,6 +13,8 @@ namespace PetAdopt.Web.App_Start
     using PetAdopt.Data;
     using PetAdopt.Data.Repositories;
     using PetAdopt.Models;
+    using PetAdopt.Web.Infrastructure.Caching;
+    using PetAdopt.Web.Infrastructure.Populators;
 
     public static class NinjectWebCommon 
     {
@@ -64,7 +66,7 @@ namespace PetAdopt.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(typeof(IRepository<>)).To(typeof(EFRepository<>));
+            
             kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
             kernel.Bind<IPetAdoptData>().To<PetAdoptData>();
             kernel.Bind<IPetAdoptDbContext>().To<PetAdoptDbContext>();
@@ -76,6 +78,13 @@ namespace PetAdopt.Web.App_Start
             kernel.Bind<IRepository<Message>>().To<DeletableEntityRepository<Message>>();
             kernel.Bind<IRepository<Notification>>().To<DeletableEntityRepository<Notification>>();
             //kernel.Bind(typeof(IPetAdoptData)).To(typeof(PetAdoptData));
+
+            kernel.Bind(typeof(IRepository<>)).To(typeof(EFRepository<>));
+
+            kernel.Bind(typeof(IDeleteablePetAdoptData)).To(typeof(DeleteablePetAdoptData));
+
+            kernel.Bind<ICacheService>().To<InMemoryCache>();
+            kernel.Bind<IDropDownListPopulator>().To<DropDownListPopulator>();
         }
 
         public static object IRepository { get; set; }

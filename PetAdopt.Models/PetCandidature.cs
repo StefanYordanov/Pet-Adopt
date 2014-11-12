@@ -16,8 +16,6 @@ namespace PetAdopt.Models
 
         public virtual User Candidate { get; set; }
 
-        public DateTime DatePosted { get; set; }
-
         public int AdvertisementId { get; set; }
 
         public virtual PetAdvertisement Advertisement { get; set; }

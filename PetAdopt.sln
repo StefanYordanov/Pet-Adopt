@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetAdopt.Web.Tests", "PetAd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetAdopt.Data", "PetAdopt.Data\PetAdopt.Data.csproj", "{771A9FC1-EEA1-47E0-9FE9-88559C87C7F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetAdopt.Common", "PetAdopt.Common\PetAdopt.Common.csproj", "{41FB6A80-DF69-4CB9-90AD-F04D996B6F8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{771A9FC1-EEA1-47E0-9FE9-88559C87C7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{771A9FC1-EEA1-47E0-9FE9-88559C87C7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{771A9FC1-EEA1-47E0-9FE9-88559C87C7F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41FB6A80-DF69-4CB9-90AD-F04D996B6F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41FB6A80-DF69-4CB9-90AD-F04D996B6F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41FB6A80-DF69-4CB9-90AD-F04D996B6F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41FB6A80-DF69-4CB9-90AD-F04D996B6F8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

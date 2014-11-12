@@ -1,0 +1,33 @@
+﻿@model IList<PetAdopt.Web.Areas.Pets.ViewModels.AllAdvertisementsViewModel>
+
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int i = 0;
+}
+
+<h2>All Pets</h2>
+
+@while (i < Model.Count)
+{
+    <div class="row">
+        @for (int j = i, initialI = i; j < initialI + 3 && j < Model.Count; j++, i++)
+        {
+            <div class="col-md-4 site-jumbotron padded">
+                <p>Name: @Model[j].Pet.Name</p>
+                <p>Type: @Model[j].Pet.Type</p>
+                <p>Breed: @Model[j].Pet.Breed</p>
+                <p>Cost: @(Model[j].Pet.Cost) $</p>
+                <p>Age: @(PetAdopt.Common.DateTimeExtensions.GetAge(Model[j].Pet.BirthDate))</p>
+                <p>Owner: @Model[j].AnnouncerName</p>
+
+            </div>
+
+        }
+
+    </div>
+}
+
+
+

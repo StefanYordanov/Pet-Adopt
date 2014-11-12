@@ -1,34 +1,53 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
+    
+    
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
+
+        @if (User.IsInRole("admin"))
+        {
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle nav-text" data-toggle="dropdown" aria-expanded="false">Administration <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        @Html.ActionLink("PetTypes", "Index", "PetTypes", new { area = "Administration" }, htmlAttributes: new { title = "Administration", @class = "nav-text" })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Pets", "Index", "Pets", new { area = "Administration" }, htmlAttributes: new { title = "Administration", @class = "nav-text" })
+                    </li>
+                </ul>
+            </li>
+        }
+
         <li>
-            <a href="/#">
-                <div class="glyphicon glyphicon-bell"></div>
-                <div class="badge">4</div>
-            </a>
-        </li>
-        <li>
-            <a href="/#" >
-                <div class ="glyphicon glyphicon-envelope"></div>
-                <div class="badge">0</div>
-            </a>
-        </li>
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-text" })
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", new { area = string.Empty }, htmlAttributes: new { title = "Manage", @class = "nav-text" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()" class="nav-text">Log off</a></li>
     </ul>
+
     }
+    <div id="messages-and-notifications">
+        @Html.Action("GetNotificationsAndMessagesPartial", "Home", new { area = string.Empty })
+    </div>
+
+    <script type="text/javascript">
+
+    $(function () {
+        setInterval(function () { $('#messages-and-notifications').load('/Home/GetNotificationsAndMessagesPartial'); }, 10000); // every 10 sec
+    });
+
+    </script>
+
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-text" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-text" })</li>
+        <li>@Html.ActionLink("Register", "Register", "Account", new { area = string.Empty }, htmlAttributes: new { id = "registerLink", @class = "nav-text" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", new { area = string.Empty }, htmlAttributes: new { id = "loginLink", @class = "nav-text" })</li>
     </ul>
 }

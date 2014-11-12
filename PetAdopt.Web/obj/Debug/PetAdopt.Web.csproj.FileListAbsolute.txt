@@ -68,3 +68,5 @@ C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\AutoMapper.dll
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\AutoMapper.xml
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\Kendo.Mvc.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\PetAdopt.Common.dll
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Web\bin\PetAdopt.Common.pdb

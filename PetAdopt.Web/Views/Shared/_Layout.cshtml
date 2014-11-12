@@ -12,6 +12,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/kendo")
 
+    @RenderSection("headerScripts", required:false)
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top brown">
@@ -32,9 +34,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     
-                    <li>@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-text" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { @class = "nav-text" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "nav-text" })</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area=string.Empty }, htmlAttributes: new { @class = "nav-text" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = string.Empty }, htmlAttributes: new { @class = "nav-text" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -48,7 +49,6 @@
         </footer>
     </div>
 
-    
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

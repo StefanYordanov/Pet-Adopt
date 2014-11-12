@@ -11,69 +11,13 @@
         It also allows you to be a candidate for pet adoption.
     </p>
     <p>
-        <a href="http://asp.net" class="btn btn-success btn-lg">Adopt a pet</a>
-        <a href="http://asp.net" class="btn btn-warning btn-lg">Give a pet for adoption</a>
+        @Html.ActionLink("Adopt a pet", "AllPets", "Pets", new { area = "Pet" }, htmlAttributes: new { @class = "btn btn-success btn-lg" })
+        @Html.ActionLink("Give a pet for adoption", "CreateAdvertisement", "Pets", new { area = "Pet" }, htmlAttributes: new { @class = "btn btn-warning btn-lg" })
     </p>
 </div>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="jumbotron site-jumbotron">
-            <h2>Top 5 pets for adoption:</h2>
-            @foreach (var advertisement in Model.TopAdvertisements)
-            {
-                <a href="#">
-                    <div class="row bright padded">
-                        <div class="col-md-6">
-                            <img src="@advertisement.Pet.PictureUrl" height="100%" width="100%" />
-                        </div>
-                        <div>
-                            <p><strong>@advertisement.Pet.Name</strong> @advertisement.Pet.GetAge()</p>
-                            <p>@advertisement.Pet.Type.Name</p>
-                            <p>Price: @(advertisement.Pet.Cost == 0 ? advertisement.Pet.Cost.ToString() : "Free")</p>
-                        </div>
-                    </div>
-                </a>
-            }
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="jumbotron site-jumbotron">
-            <h2>Latest 5 pets for adoption:</h2>
-            @foreach (var advertisement in Model.LatestAdvertisements)
-            {
-                <a href="#">
-                    <div class="row bright padded">
-                        <div class="col-md-6">
-                            <img src="@advertisement.Pet.PictureUrl" height="100%" width="100%" />
-                        </div>
-                        <div>
-                            <p><strong>@advertisement.Pet.Name</strong> @advertisement.Pet.GetAge()</p>
-                            <p>@advertisement.Pet.Type.Name</p>
-                            <p>Price: @(advertisement.Pet.Cost == 0 ? advertisement.Pet.Cost.ToString() : "Free")</p>
-                        </div>
-                    </div>
-                </a>
-            }
-            <!--
-            <a href="#">
-                <div class="row bright padded">
-                    <div class="col-md-6">
-                        <img src="http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg" height="100%" width="100%" />
-                    </div>
-                    <div >
-                        <p><strong>Lucky</strong> 1 year old</p>
-                        <p>Cat</p>
-                        <p>Price: Free</p>
-                        <p>Candidatures: 5</p>
-                    </div>
-                </div>
-            </a>
-                -->
-        </div>
-    </div>
-    
-</div>
+
+@Html.Action("GetTopPetsPartial")
 
 <div class="row">
     <div class="col-md-4">
