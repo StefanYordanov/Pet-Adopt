@@ -29,12 +29,12 @@
                 </a>
 
                 @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) *@
-                
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area=string.Empty }, htmlAttributes: new { @class = "nav-text" })</li>
+
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, htmlAttributes: new { @class = "nav-text" })</li>
                     <li>@Html.ActionLink("About", "About", "Home", new { area = string.Empty }, htmlAttributes: new { @class = "nav-text" })</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -42,6 +42,13 @@
         </div>
     </div>
     <div class="container body-content">
+        @if (TempData["success"] != null)
+        {
+            <div class="alert alert-dismissable alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>@TempData["success"]</strong>
+            </div>
+        }
         @RenderBody()
         <hr />
         <footer>
@@ -52,4 +59,5 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
+
 </html>

@@ -1,7 +1,7 @@
 @model decimal?
 
 @(Html.Kendo().CurrencyTextBoxFor(m => m)      
-      .HtmlAttributes(new {style="width:100%"})
+      .HtmlAttributes(new {@class="form-control"})
       .Min(0)
 )
 

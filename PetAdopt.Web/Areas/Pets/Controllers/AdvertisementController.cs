@@ -57,7 +57,9 @@ namespace PetAdopt.Web.Areas.Pets.Controllers
         public ActionResult Create(CreatePetViewModel model)
         {
 
-            return null;
+
+            TempData["success"] = "Pet Successfully Created!";
+            return Redirect("/");
         }
     }
 }
