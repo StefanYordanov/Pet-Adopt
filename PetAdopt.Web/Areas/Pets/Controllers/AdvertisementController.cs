@@ -10,18 +10,24 @@ using AutoMapper.QueryableExtensions;
 using PetAdopt.Web.Areas.Pets.ViewModels;
 using System.Data.Entity;
 using PetAdopt.Web.Infrastructure.Populators;
+using Microsoft.AspNet.Identity;
 
 namespace PetAdopt.Web.Areas.Pets.Controllers
 {
     public class AdvertisementController : Controller
     {
-        IRepository<PetAdvertisement> advertisements;
-        IDropDownListPopulator populator;
+        private IRepository<PetAdvertisement> advertisements;
+        private IDropDownListPopulator populator;
+        private IRepository<Pet> pets;
 
-        public AdvertisementController(IRepository<PetAdvertisement> advertisements, IDropDownListPopulator populator)
+        public AdvertisementController(
+            IRepository<PetAdvertisement> advertisements, 
+            IRepository<Pet> pets, 
+            IDropDownListPopulator populator)
         {
             this.advertisements = advertisements;
             this.populator = populator;
+            this.pets = pets;
         }
 
         // GET: Pets/Advertisement
@@ -56,7 +62,25 @@ namespace PetAdopt.Web.Areas.Pets.Controllers
         [HttpPost]
         public ActionResult Create(CreatePetViewModel model)
         {
+            if (model == null || !ModelState.IsValid)
+            {
+                return View(model);
+            }
 
+            var dbModel = Mapper.Map<CreatePetViewModel, Pet>(model);
+
+            var dbAdvertisement = new PetAdvertisement
+            {
+                AnnouncerId = User.Identity.GetUserId(),
+                Pet = dbModel
+            };
+
+            this.advertisements.Add(dbAdvertisement);
+            this.pets.Add(dbModel);
+            this.advertisements.SaveChanges();
+
+
+            //dbModel.PetAdvertisementId = dbAdvertisement.Id;
 
             TempData["success"] = "Pet Successfully Created!";
             return Redirect("/");

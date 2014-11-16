@@ -195,7 +195,7 @@
     <Compile Include="Areas\Pets\PetsAreaRegistration.cs" />
     <Compile Include="Areas\Pets\ViewModels\AllAdvertisementsPetViewModel.cs" />
     <Compile Include="Areas\Pets\ViewModels\AllAdvertisementsViewModel.cs" />
-    <Compile Include="Areas\Pets\ViewModels\CreatePetAdvertisementViewModel.cs" />
+    <Compile Include="Areas\Pets\ViewModels\CreatePetViewModel.cs" />
     <Compile Include="Areas\User\Controllers\MessagesController.cs" />
     <Compile Include="Areas\User\Controllers\NotificationsController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
