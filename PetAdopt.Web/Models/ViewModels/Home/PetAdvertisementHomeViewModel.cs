@@ -12,33 +12,33 @@ using System.Web;
 
 namespace PetAdopt.Web.Models.ViewModels.Home
 {
-    public class PetAdvertisementHomeViewModel : IMapFrom<PetAdvertisement>, IHaveCustomMappings
+    public class PetAdvertisementHomeViewModel : IMapFrom<Pet>, IHaveCustomMappings
     {
-        public PetHomeViewModel Pet { get; set; }
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string Breed { get; set; }
+
+        public DateTime BirthDate { get; set; }
+
+        public string Type { get; set; }
+
+        public decimal Cost { get; set; }
+
+        public string PictureUrl { get; set; }
+
+        public DateTime CreatedOn { get; set; }
 
         public int CandidaturesCount { get; set; }
 
-        /*public static Expression<Func<PetAdvertisement, PetAdvertisementHomeViewModel>> FromPetAdvertisement
-        {
-            get
-            {
-                return p => new PetAdvertisementHomeViewModel
-                {
-                    BirthDate = p.Pet.BirthDate,
-                    Name = p.Pet.Name,
-                    Cost = p.Pet.Cost,
-                    Type = p.Pet.Type,
-                    CandidaturesCount = p.Candidatures.Count,
-                    PictureUrl = p.Pet.PictureUrl
-                };
-            }
-        }
-         * */
-
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {
-            configuration.CreateMap<PetAdvertisement, PetAdvertisementHomeViewModel>()
-                .ForMember(dest => dest.CandidaturesCount, opts => opts.MapFrom(p => p.Candidatures.Count));
+            configuration.CreateMap<Pet, PetAdvertisementHomeViewModel>()
+                .ForMember(dest => dest.CandidaturesCount, opts => opts.MapFrom(p => p.Candidatures.Count))
+                .ForMember(dest => dest.Type, opts => opts.MapFrom(p => p.Type.Name));
         }
+
+        
     }
 }

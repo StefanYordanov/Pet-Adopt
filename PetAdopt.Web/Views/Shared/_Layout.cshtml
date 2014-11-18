@@ -49,6 +49,13 @@
                 <strong>@TempData["success"]</strong>
             </div>
         }
+        @if (TempData["error"] != null)
+        {
+            <div class="alert alert-dismissable alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>@TempData["error"]</strong>
+            </div>
+        }
         @RenderBody()
         <hr />
         <footer>

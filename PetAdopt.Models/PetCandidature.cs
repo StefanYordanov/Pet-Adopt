@@ -18,7 +18,9 @@ namespace PetAdopt.Models
 
         public int AdvertisementId { get; set; }
 
-        public virtual PetAdvertisement Advertisement { get; set; }
+        public string Content { get; set; }
+
+        public virtual Pet Advertisement { get; set; }
 
         [Index]
         public bool IsDeleted { get; set; }

@@ -17,7 +17,7 @@ namespace PetAdopt.Models
         public User()
         {
             CreatedOn = DateTime.Now;
-            this.petAdvertisements = new HashSet<PetAdvertisement>();
+            this.petAdvertisements = new HashSet<Pet>();
             this.petCandidatures = new HashSet<PetCandidature>();
 
             this.notifications = new HashSet<Notification>();

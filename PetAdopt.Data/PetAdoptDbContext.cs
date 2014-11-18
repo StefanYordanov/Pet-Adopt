@@ -45,16 +45,6 @@ namespace PetAdopt.Data
                         .HasForeignKey(m => m.SenderId)
                         .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Pet>()
-            .HasKey(e => e.PetAdvertisementId);
-
-            modelBuilder.Entity<Pet>()
-                        .Property(e => e.PetAdvertisementId)
-                        .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            modelBuilder.Entity<Pet>()
-                        .HasRequired(e => e.PetAdvertisement)
-                        .WithRequiredDependent(s => s.Pet);
-
             base.OnModelCreating(modelBuilder);
         }
 
@@ -64,8 +54,6 @@ namespace PetAdopt.Data
         }
 
         public IDbSet<Pet> Pets { get; set; }
-
-        public IDbSet<PetAdvertisement> PetAdvertisements { get; set; }
 
         public IDbSet<PetCandidature> PetCandidatures { get; set; }
 

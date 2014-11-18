@@ -20,10 +20,10 @@ namespace PetAdopt.Web.Areas.Pets
                 new { action = "Index", id = UrlParameter.Optional }
             );
 
-            context.MapRoute(
-                "Pets_details",
-                "Pets/Advertisement/Details/{id}/{date}"
-            );
+            //context.MapRoute(
+            //    "Pets_details",
+            //    "Pets/Advertisement/Details/{id}/{date}"
+            //);
         }
     }
 }

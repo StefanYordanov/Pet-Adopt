@@ -13,14 +13,25 @@ namespace PetAdopt.Models
     {
         //public int Id { get; set; }
 
+        private ICollection<PetCandidature> candidatures;
+
+        public Pet()
+        {
+            this.candidatures = new HashSet<PetCandidature>();
+        }
+
+        public string AnnouncerId { get; set; }
+
+        public virtual User Announcer { get; set; }
+
+        public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
 
-        //public string OwnerId { get; set; }
-        //
-        //public virtual User Owner { get; set; }
-
         public decimal Cost { get; set; }
+
+        public bool IsApproved { get; set; }
 
         public DateTime BirthDate { get; set; }
 
@@ -32,24 +43,16 @@ namespace PetAdopt.Models
 
         public virtual PetType Type { get; set; }
 
-        [Key, ForeignKey("PetAdvertisement")]
-        public int PetAdvertisementId { get; set; }
-
-        public virtual PetAdvertisement PetAdvertisement { get; set; }
-
-        [Index]
-        public bool IsDeleted { get; set; }
-
-        public DateTime? DeletedOn { get; set; }
-
-        public DateTime CreatedOn { get; set; }
-
-        public DateTime? ModifiedOn { get; set; }
-
-        public bool PreserveCreatedOn { get; set; }
-
-
-
-
+        public virtual ICollection<PetCandidature> Candidatures
+        {
+            get
+            {
+                return this.candidatures;
+            }
+            set
+            {
+                this.candidatures = value;
+            }
+        }
     }
 }

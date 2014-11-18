@@ -8,7 +8,6 @@ namespace PetAdopt.Data
     {
         IDbSet<Message> Messages { get; set; }
         IDbSet<Notification> Notifications { get; set; }
-        IDbSet<PetAdvertisement> PetAdvertisements { get; set; }
         IDbSet<PetCandidature> PetCandidatures { get; set; }
         IDbSet<Pet> Pets { get; set; }
         IDbSet<PetType> PetTypes { get; set; }

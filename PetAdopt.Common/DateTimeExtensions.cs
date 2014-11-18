@@ -8,6 +8,10 @@ namespace PetAdopt.Common
 {
     public static class DateTimeExtensions
     {
+        public const string DirectoryDateTimeFormat = "yyyy.MM.dd.hh.mm.ss";
+
+        public const string UrlDateTimeFormat = "yyyy_MM_dd_hh_mm_ss";
+
         public static string GetAge(this DateTime BirthDate)
         {
             var age = DateTime.Now - BirthDate;

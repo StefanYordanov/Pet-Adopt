@@ -9,7 +9,7 @@ namespace PetAdopt.Models
 {
     public partial class User
     {
-        private ICollection<PetAdvertisement> petAdvertisements;
+        private ICollection<Pet> petAdvertisements;
         private ICollection<PetCandidature> petCandidatures;
         private ICollection<Message> sentMessages;
         private ICollection<Message> recievedMessages;
@@ -21,7 +21,7 @@ namespace PetAdopt.Models
         [Required]
         public string LastName { get; set; }
 
-        public virtual ICollection<PetAdvertisement> PetAdvertisements
+        public virtual ICollection<Pet> PetAdvertisements
         {
             get
             {
@@ -79,6 +79,11 @@ namespace PetAdopt.Models
             {
                 this.notifications = value;
             }
+        }
+
+        public string GetFullName()
+        {
+            return this.FirstName + " " + this.LastName;
         }
     }
 }

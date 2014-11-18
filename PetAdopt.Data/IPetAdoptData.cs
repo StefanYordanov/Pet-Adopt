@@ -19,8 +19,6 @@ namespace PetAdopt.Data
 
         IRepository<Pet> Pets { get; }
 
-        IRepository<PetAdvertisement> Advertisements { get; }
-
         IRepository<PetCandidature> Candidatures { get; }
 
         IRepository<PetType> PetTypes { get; }

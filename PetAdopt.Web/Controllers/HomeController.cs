@@ -18,12 +18,12 @@ namespace PetAdopt.Web.Controllers
     {
         private const int TopPetsCount = 5;
 
-        private IRepository<PetAdvertisement> advertisements;
+        private IRepository<Pet> advertisements;
         private IRepository<Notification> notifications;
         private IRepository<Message> messages;
         //private IRepository<User> users;
 
-        public HomeController(IRepository<PetAdvertisement> advertisements, 
+        public HomeController(IRepository<Pet> advertisements, 
             IRepository<Notification> notifications, 
             IRepository<Message> messages)
         {
@@ -38,14 +38,16 @@ namespace PetAdopt.Web.Controllers
         {
             var homeView = new HomeViewModel();
 
-            homeView.TopAdvertisements = this.advertisements.All().OrderByDescending(a => a.Candidatures.Count)
+            homeView.TopAdvertisements = this.advertisements.All().Where(p=>!p.IsApproved).OrderByDescending(a => a.Candidatures.Count)
                 .Take(TopPetsCount)
-                .Project().To<PetAdvertisementHomeViewModel>()
+                .Project()
+                .To<PetAdvertisementHomeViewModel>()
                 .ToList();
 
-            homeView.LatestAdvertisements = this.advertisements.All().OrderByDescending(a => a.CreatedOn)
+            homeView.LatestAdvertisements = this.advertisements.All().Where(p=>!p.IsApproved).OrderByDescending(a => a.CreatedOn)
                 .Take(TopPetsCount)
-                .Project().To<PetAdvertisementHomeViewModel>()
+                .Project()
+                .To<PetAdvertisementHomeViewModel>()
                 .ToList();
 
             return PartialView("_TopPetAdvertisements", homeView);
@@ -71,25 +73,17 @@ namespace PetAdopt.Web.Controllers
         public ActionResult Index()
         {
             return View();
-            //var homeView = new HomeViewModel();
-            //
-            //homeView.TopAdvertisements = this.advertisements.All().OrderByDescending(a => a.Candidatures.Count)
-            //    .Take(TopPetsCount)
-            //    .Project().To<PetAdvertisementHomeViewModel>()
-            //    .ToList();
-            //
-            //homeView.LatestAdvertisements = this.advertisements.All().OrderByDescending(a => a.CreatedOn)
-            //    .Take(TopPetsCount)
-            //    .Project().To<PetAdvertisementHomeViewModel>()
-            //    .ToList();
-            //
-            //return View(homeView);
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
+            return View();
+        }
+
+        public ActionResult Error()
+        {
             return View();
         }
     }

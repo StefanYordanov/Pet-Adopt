@@ -40,7 +40,7 @@ namespace PetAdopt.Web.Areas.Administration.Controllers
         public ActionResult Create([DataSourceRequest]DataSourceRequest request, PetViewModel model)
         {
             var dbModel = base.Create<Pet>(model);
-            if (dbModel != null) model.Id = dbModel.PetAdvertisementId;
+            if (dbModel != null) model.Id = dbModel.Id;
             return this.GridOperation(model, request);
         }
 
@@ -56,8 +56,8 @@ namespace PetAdopt.Web.Areas.Administration.Controllers
         {
             if (model != null && ModelState.IsValid)
             {
-                var name = this.Data.PetTypes.GetType().Name;
-                this.Data.PetTypes.Delete(model.Id.Value);
+                var name = this.Data.Pets.GetType().Name;
+                this.Data.Pets.Delete(model.Id.Value);
                 this.Data.SaveChanges();
             }
 

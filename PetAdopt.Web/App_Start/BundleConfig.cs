@@ -67,6 +67,11 @@ namespace PetAdopt.Web
 
             bundles.IgnoreList.Clear();
 
+            //jqueryajax
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryajax").Include(
+                        "~/Scripts/jquery.unobtrusive-ajax.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                         "~/Scripts/KendoUI/kendo.all.min.js",
                         "~/Scripts/KendoUI/kendo.aspnetmvc.min.js"));

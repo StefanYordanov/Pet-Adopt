@@ -59,7 +59,6 @@
     <Compile Include="Common\IOrderable.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Notification.cs" />
-    <Compile Include="PetAdvertisement.cs" />
     <Compile Include="PetCandidature.cs" />
     <Compile Include="PetType.cs" />
     <Compile Include="Pet.cs" />

@@ -192,13 +192,17 @@
     <Compile Include="Areas\Administration\ViewModels\Pets\PetViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\PetTypes\PetTypeViewModel.cs" />
     <Compile Include="Areas\Pets\Controllers\AdvertisementController.cs" />
+    <Compile Include="Areas\Pets\Controllers\CandidatureController.cs" />
     <Compile Include="Areas\Pets\PetsAreaRegistration.cs" />
     <Compile Include="Areas\Pets\ViewModels\AllAdvertisementsPetViewModel.cs" />
-    <Compile Include="Areas\Pets\ViewModels\AllAdvertisementsViewModel.cs" />
+    <Compile Include="Areas\Pets\ViewModels\Candidatures\PostCandidatureViewModel.cs" />
+    <Compile Include="Areas\Pets\ViewModels\CandidatureViewModel.cs" />
     <Compile Include="Areas\Pets\ViewModels\CreatePetViewModel.cs" />
+    <Compile Include="Areas\Pets\ViewModels\PetAdvertisementDetailsViewModel.cs" />
     <Compile Include="Areas\User\Controllers\MessagesController.cs" />
     <Compile Include="Areas\User\Controllers\NotificationsController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Areas\User\ViewModels\NotificationViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -218,7 +222,6 @@
     <Compile Include="Models\ViewModels\Home\HomeViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ViewModels\Home\PetAdvertisementHomeViewModel.cs" />
-    <Compile Include="Models\ViewModels\Home\PetHomeViewModel.cs" />
     <Compile Include="Models\ViewModels\NotificationsAndMessagesViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -262,6 +265,11 @@
     <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Integer.cshtml" />
     <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Number.cshtml" />
     <Content Include="Areas\Pets\Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Areas\Pets\Views\Advertisement\Details.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\_PostCandidaturePartial.cshtml" />
+    <Content Include="Areas\Pets\Views\Shared\_CandidaturePartial.cshtml" />
+    <Content Include="Areas\User\Views\Notifications\Index.cshtml" />
+    <Content Include="Areas\Pets\Views\Advertisement\_SearchForm.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -336,10 +344,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
-    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\Pets\Views\Candidature\" />
     <Folder Include="Areas\User\Views\Advertisements\" />
     <Folder Include="Areas\User\Views\Messages\" />
-    <Folder Include="Areas\User\Views\Notifications\" />
     <Folder Include="Areas\User\Views\Pets\" />
     <Folder Include="Areas\User\Views\Shared\" />
     <Folder Include="Content\Images\Avatars\Pets\" />

@@ -1,26 +1,56 @@
-﻿@model IList<PetAdopt.Web.Areas.Pets.ViewModels.AllAdvertisementsViewModel>
+﻿@model PetAdopt.Web.Areas.Pets.ViewModels.AllAdvertisementsPetViewModel
 
 @{
     ViewBag.Title = "All";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
+    var advertisements = Model.Advertisements;
     int i = 0;
 }
 
 <h2>All Pets</h2>
+<div class="hide-text">
+    @Html.Partial("_SearchForm", Model.SearchProperties)
+</div>
 
-@while (i < Model.Count)
+
+@while (i < advertisements.Count)
 {
     <div class="row">
-        @for (int j = i, initialI = i; j < initialI + 3 && j < Model.Count; j++, i++)
+        @for (int j = i, initialI = i; j < initialI + 3 && j < advertisements.Count; j++, i++)
         {
-            <div class="col-md-4 site-jumbotron padded">
-                <p>Name: @Model[j].Pet.Name</p>
-                <p>Type: @Model[j].Pet.Type</p>
-                <p>Breed: @Model[j].Pet.Breed</p>
-                <p>Cost: @(Model[j].Pet.Cost) $</p>
-                <p>Age: @(PetAdopt.Common.DateTimeExtensions.GetAge(Model[j].Pet.BirthDate))</p>
-                <p>Owner: @Model[j].AnnouncerName</p>
+            <div class="col-md-4 padded">
+                @if (j%3==1)
+                {
+                    <div class="row site-jumbotron">
+                        <div class="col-md-6">
+                            <a href="/Pets/Advertisement/Details/@(advertisements[j].Id)?date=@(advertisements[j].CreatedOn.ToString(PetAdopt.Common.DateTimeExtensions.UrlDateTimeFormat))">
+                                <img src="@advertisements[j].PictureUrl" height="150px" width="150px" />
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Name: @advertisements[j].Name</p>
+                            <p>Breed: @advertisements[j].Breed</p>
+                            <p>Cost: @(advertisements[j].Cost) $</p>
+                            <p>Age: @(PetAdopt.Common.DateTimeExtensions.GetAge(advertisements[j].BirthDate))</p>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row bright">
+                        <div class="col-md-6">
+                            <a href="/Pets/Advertisement/Details/@(advertisements[j].Id)?date=@(advertisements[j].CreatedOn.ToString(PetAdopt.Common.DateTimeExtensions.UrlDateTimeFormat))">
+                                <img src="@advertisements[j].PictureUrl" height="150px" width="150px" />
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Name: @advertisements[j].Name</p>
+                            <p>Breed: @advertisements[j].Breed</p>
+                            <p>Cost: @(advertisements[j].Cost) $</p>
+                            <p>Age: @(PetAdopt.Common.DateTimeExtensions.GetAge(advertisements[j].BirthDate))</p>
+                        </div>
+                    </div>
+                }
 
             </div>
 

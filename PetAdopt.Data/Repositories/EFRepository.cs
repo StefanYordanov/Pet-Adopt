@@ -15,6 +15,12 @@ namespace PetAdopt.Data.Repositories
         protected DbContext context;
         private IDbSet<T> set;
 
+        public EFRepository() : this(new PetAdoptDbContext())
+        {
+            this.context = context;
+            this.set = context.Set<T>();
+        }
+
         public EFRepository(DbContext context)
         {
             this.context = context;

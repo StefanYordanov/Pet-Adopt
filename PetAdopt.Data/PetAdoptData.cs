@@ -65,11 +65,6 @@ namespace PetAdopt.Data
             get { return this.GetDeleteableRepository<Pet>(); }
         }
 
-        public virtual IRepository<PetAdvertisement> Advertisements
-        {
-            get { return this.GetDeleteableRepository<PetAdvertisement>(); }
-        }
-
         public virtual IRepository<PetCandidature> Candidatures
         {
             get { return this.GetDeleteableRepository<PetCandidature>(); }

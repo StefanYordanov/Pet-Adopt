@@ -18,19 +18,7 @@ namespace PetAdopt.Models
 
         public string Content { get; set; }
 
-        public DateTime DateRecieved { get; set; }
-
         public bool IsRead { get; set; }
 
-        [Index]
-        public bool IsDeleted { get; set; }
-
-        public DateTime? DeletedOn { get; set; }
-
-        public DateTime CreatedOn { get; set; }
-
-        public DateTime? ModifiedOn { get; set; }
-
-        public bool PreserveCreatedOn { get; set; }
     }
 }

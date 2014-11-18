@@ -11,8 +11,8 @@
         It also allows you to be a candidate for pet adoption.
     </p>
     <p>
-        @Html.ActionLink("Adopt a pet", "AllPets", "Pets", new { area = "Pet" }, htmlAttributes: new { @class = "btn btn-success btn-lg" })
-        @Html.ActionLink("Give a pet for adoption", "CreateAdvertisement", "Pets", new { area = "Pet" }, htmlAttributes: new { @class = "btn btn-warning btn-lg" })
+        <a href="/Pets/Advertisement/All" class="btn btn-success btn-lg">Adopt a pet</a>
+        <a href="/Pets/Advertisement/Create" class="btn btn-warning btn-lg">Give a pet for adoption</a>
     </p>
 </div>
 

@@ -18,8 +18,6 @@ namespace PetAdopt.Data
 
         IDeletableEntityRepository<Pet> Pets { get; }
 
-        IDeletableEntityRepository<PetAdvertisement> Advertisements { get; }
-
         IDeletableEntityRepository<PetCandidature> Candidatures { get; }
 
         IDeletableEntityRepository<PetType> PetTypes { get; }

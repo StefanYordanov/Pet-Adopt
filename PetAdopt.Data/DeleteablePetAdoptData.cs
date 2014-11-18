@@ -30,11 +30,6 @@ namespace PetAdopt.Data
             get { return GetDeleteableRepository<Pet>(); }
         }
 
-        public IDeletableEntityRepository<PetAdvertisement> Advertisements
-        {
-            get { return GetDeleteableRepository<PetAdvertisement>(); }
-        }
-
         public IDeletableEntityRepository<PetCandidature> Candidatures
         {
             get { return GetDeleteableRepository<PetCandidature>(); }

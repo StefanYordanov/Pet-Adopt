@@ -9,6 +9,6 @@ C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Models\b
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Models\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Models\obj\Debug\PetAdopt.Models.csprojResolveAssemblyReference.cache
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Models\obj\Debug\PetAdopt.Models.dll
 C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Models\obj\Debug\PetAdopt.Models.pdb
+C:\Users\Stefan\Documents\Visual Studio 2013\Projects\PetAdopt\PetAdopt.Models\obj\Debug\PetAdopt.Models.csprojResolveAssemblyReference.cache

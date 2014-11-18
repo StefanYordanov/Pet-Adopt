@@ -71,15 +71,16 @@ namespace PetAdopt.Web.App_Start
             kernel.Bind<IPetAdoptData>().To<PetAdoptData>();
             kernel.Bind<IPetAdoptDbContext>().To<PetAdoptDbContext>();
 
+            kernel.Bind<IRepository<User>>().To<EFRepository<User>>();
+
             kernel.Bind<IRepository<PetType>>().To<DeletableEntityRepository<PetType>>();
             kernel.Bind<IRepository<Pet>>().To<DeletableEntityRepository<Pet>>();
             kernel.Bind<IRepository<PetCandidature>>().To<DeletableEntityRepository<PetCandidature>>();
-            kernel.Bind<IRepository<PetAdvertisement>>().To<DeletableEntityRepository<PetAdvertisement>>();
             kernel.Bind<IRepository<Message>>().To<DeletableEntityRepository<Message>>();
             kernel.Bind<IRepository<Notification>>().To<DeletableEntityRepository<Notification>>();
             //kernel.Bind(typeof(IPetAdoptData)).To(typeof(PetAdoptData));
 
-            kernel.Bind(typeof(IRepository<>)).To(typeof(EFRepository<>));
+            //kernel.Bind(typeof(IRepository<>)).To(typeof(EFRepository<>));
 
             kernel.Bind(typeof(IDeleteablePetAdoptData)).To(typeof(DeleteablePetAdoptData));
 

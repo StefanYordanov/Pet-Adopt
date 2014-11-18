@@ -32,6 +32,10 @@
     font-weight:bold;
 }
 
+.hide-text{
+    color: #FFC563;
+}
+
 .padded{
     padding:10px;
 }
